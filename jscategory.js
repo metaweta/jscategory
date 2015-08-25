@@ -1,11 +1,12 @@
 // Library of contracts and functors.
-// TODO: cache typing judgements in a WeakMap.
+// TODO: cache typing judgements on functions in a WeakMap.
 var CT = (function (){
   var call = Function.prototype.call;
   var slice = call.bind([].slice);
   var getClassName = call.bind({}.toString);
   var create = Object.create.bind(Object);
   var gpo = Object.getPrototypeOf.bind(Object);
+  var cache = new WeakMap();
 
   // Makes the contracts into global methods
   var install = function (global) {
