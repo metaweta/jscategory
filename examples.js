@@ -1,3 +1,5 @@
+CT.install(this);
+
 // Algebraic theory of MONOIDS:
 // Choose a set and two functions satisfying some relations, get a monoid
 // It's undecidable to test the relations, so we leave them out...
