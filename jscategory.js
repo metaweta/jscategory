@@ -49,7 +49,7 @@ var CT = (function (){
   var typeOf = function (s) {
     return function (v) {
       if (typeof v !== s) {
-        throw new TypeError("Expected a" + (s === "object" ? "n" : "") + s + ".");
+        throw new TypeError("Expected a " + (s === "object" ? "n" : "") + s + ".");
       }
       return v;
     };
