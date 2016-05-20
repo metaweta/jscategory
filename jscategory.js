@@ -262,7 +262,7 @@ define(() => {
                precond(slice(arguments))));
       };
       result.toString =
-          ((str) => () => str + '/* guarded */';)('' + middle);
+          ((str) => () => str + '/* guarded */')('' + middle);
       return result;
     };
     result.self = self.bind(result);
