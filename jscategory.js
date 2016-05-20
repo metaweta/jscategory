@@ -333,7 +333,9 @@ var CT = (function (){
     int32: int32,
     intersect: intersect,
     memo: memo,
+    nan: nan,
     nat32: nat32,
+    nul: nul,
     number: number,
     object: object,
     objectOf: objectOf,
@@ -342,6 +344,7 @@ var CT = (function (){
     prods: prods,
     regexp: regexp,
     string: string,
+    undef: undef,
     union: union,
 
     install: install

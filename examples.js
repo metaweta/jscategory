@@ -140,7 +140,7 @@ var kleisli = function (mon) {
 var kli = kleisli(listMon)(int32);
 kli(6)._(upto)._(upto).value; // === [0,0,1,0,1,2,0,1,2,3,0,1,2,3,4]
 
-// Example of a monoidal closed functor, the "points" functor
+// Example of a monoidal closed functor, the "points" functor.
 // Comes equipped with natural isomorphisms
 //    chi:(lazy A -o B) -> (lazy A -o lazy B)
 //    phi:(lazy prod_i A_i) -> (prod_i lazy A_i)
