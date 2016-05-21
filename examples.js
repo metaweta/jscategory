@@ -1,4 +1,4 @@
-CT.install(this);
+require('jscategory');
 
 // Algebraic theory of MONOIDS:
 // Choose a set and two functions satisfying some relations, get a monoid
