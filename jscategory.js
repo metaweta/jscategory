@@ -294,36 +294,41 @@ define(() => {
       return key;
     };
   };
+  
+  let promOf = (c) => (x) => {
+    return x.then(c);
+  };
 
   return {
     allOf: intersect,
-    any: any,
+    any,
     anyOf: union,
-    array: array,
-    arrayOf: arrayOf,
-    boolean: boolean,
-    coprodn: coprodn,
-    coprods: coprods,
-    date: date,
-    func: func,
-    hom: hom,
+    array,
+    arrayOf,
+    boolean,
+    coprodn,
+    coprods,
+    date,
+    func,
+    hom,
     id: any,
-    instanceOf: instanceOf,
-    int32: int32,
-    intersect: intersect,
-    memo: memo,
-    nan: nan,
-    nat32: nat32,
-    nul: nul,
-    number: number,
-    object: object,
-    objectOf: objectOf,
-    pbn: pbn,
-    prodn: prodn,
-    prods: prods,
-    regexp: regexp,
-    string: string,
-    undef: undef,
-    union: union,
+    instanceOf,
+    int32,
+    intersect,
+    memo,
+    nan,
+    nat32,
+    nul,
+    number,
+    object,
+    objectOf,
+    pbn,
+    prodn,
+    prods,
+    promOf,
+    regexp,
+    string,
+    undef,
+    union
   };
 });
