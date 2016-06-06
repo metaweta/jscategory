@@ -109,13 +109,12 @@ define(() => {
       if (args.length !== len) {
         throw new TypeError('Expected ' + len + ' elements');
       }
-      let result = [];
       for (let i = 0; i < len; ++i) {
         // Apply each contract to the
         // corresponding argument.
-        result[i] = cs[i](args[i]);
+        args[i] = cs[i](args[i]);
       }
-      return result;
+      return args;
     };
   };
 
@@ -130,18 +129,10 @@ define(() => {
     }
     return (x) => {
       object(x);
-      let result = create(x);
-      let map = {};
       for (let i in cs) {
-        result[i] = cs[i](x[i]);
-        map[i] = 1;
+        x[i] = cs[i](x[i]);
       }
-      for (let i in x) {
-        if (!map[i]) {
-          result[i] = x[i];
-        }
-      }
-      return result;
+      return x;
     };
   };
 
@@ -161,7 +152,8 @@ define(() => {
       if (choice[0] >= cs.length) {
         throw new TypeError('Tag out of range.')
       }
-      return [choice[0], cs[choice[0]](choice[1])];
+      choice[1] = cs[choice[0]](choice[1]);
+      return choice;
     };
   };
 
@@ -181,7 +173,8 @@ define(() => {
       if (!cs.hasOwnProperty(choice[0])) {
         throw new TypeError('Unknown tag.')
       }
-      return [choice[0], cs[choice[0]](choice[1])];
+      choice[1] = cs[choice[0]](choice[1]);
+      return choice;
     };
   };
 
