@@ -35,6 +35,15 @@ define(() => {
   let array = classOf('Array');
   let date = classOf('Date');
   let regexp = classOf('RegExp');
+  let re = r => {
+      regexp(r);
+      return x => {
+          if (!string(x).match(r)) {
+              throw new TypeError('Expected a matching string.');
+          }
+          return x;
+      };
+  };
 
   // Creates a contract for a value of type s
   let typeOf = (s) => (v) => {
@@ -319,6 +328,7 @@ define(() => {
     prodn,
     prods,
     promOf,
+    re,
     regexp,
     string,
     undef,
