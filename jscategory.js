@@ -35,6 +35,8 @@ define(() => {
   let array = classOf('Array');
   let date = classOf('Date');
   let regexp = classOf('RegExp');
+  let promise = classOf('Promise');
+
   let re = r => {
       regexp(r);
       return x => {
@@ -43,6 +45,10 @@ define(() => {
           }
           return x;
       };
+  };
+
+  let promOf = (c) => (x) => {
+    return x.then(c);
   };
 
   // Creates a contract for a value of type s
@@ -118,12 +124,13 @@ define(() => {
       if (args.length !== len) {
         throw new TypeError('Expected ' + len + ' elements');
       }
+      let result = [];
       for (let i = 0; i < len; ++i) {
         // Apply each contract to the
         // corresponding argument.
-        args[i] = cs[i](args[i]);
+        result[i] = cs[i](args[i]);
       }
-      return args;
+      return result;
     };
   };
 
@@ -137,11 +144,11 @@ define(() => {
       func(cs[i]);
     }
     return (x) => {
-      object(x);
+      let y = Object.create(object(x));
       for (let i in cs) {
-        x[i] = cs[i](x[i]);
+        y[i] = cs[i](x[i]);
       }
-      return x;
+      return y;
     };
   };
 
@@ -297,10 +304,6 @@ define(() => {
     };
   };
   
-  let promOf = (c) => (x) => {
-    return x.then(c);
-  };
-
   return {
     allOf: intersect,
     any,
@@ -328,6 +331,7 @@ define(() => {
     prodn,
     prods,
     promOf,
+    promise,
     re,
     regexp,
     string,
