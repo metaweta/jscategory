@@ -1,6 +1,5 @@
 // By Michael Stay
-// (c) 2013-2016
-// Licensed for any use to Pyrofex Corp.
+// (c) 2013-2017
 
 // Library of contracts and functors.
 // TODO: cache typing judgements on functions in a WeakMap.
